@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+    
     - name: build and push to docker
       uses: docker/build-push-action@v2
       with:
@@ -14,4 +15,5 @@ jobs:
         repository: ${{ github.repository }}
         tag_with_ref: true
         tag_with_sha: true
-        tags: ${{ github.sha }}
+        push: true
+        tags: jasseralg/app:${{ github.sha }}
